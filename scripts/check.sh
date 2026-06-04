@@ -19,6 +19,7 @@ fail() {
 [[ -f "$APP_SURFACE" ]] || fail "missing app surface notes"
 [[ -f "$COVERAGE" ]] || fail "missing Spiral MCP coverage docs"
 [[ -x "$ROOT/scripts/install-skill.sh" ]] || fail "install helper must be executable"
+[[ -x "$ROOT/scripts/smoke-test-skill.sh" ]] || fail "smoke test helper must be executable"
 
 grep -q '^name: write-with-spiral$' "$SKILL" || fail "skill frontmatter name missing"
 grep -q 'description:.*Spiral MCP' "$SKILL" || fail "skill description does not mention Spiral MCP"
@@ -38,6 +39,7 @@ grep -q '## Quick Example' "$README" || fail "README missing Quick Example"
 grep -q '## Troubleshooting' "$README" || fail "README missing Troubleshooting"
 grep -q '## Limitations' "$README" || fail "README missing Limitations"
 grep -q 'scripts/install-skill.sh' "$README" || fail "README missing install helper"
+grep -q 'scripts/smoke-test-skill.sh' "$README" || fail "README missing smoke test helper"
 grep -q '## Confirmed MCP Coverage' "$README" || fail "README missing confirmed MCP coverage"
 grep -q 'Not tested' "$COVERAGE" || fail "coverage doc missing skipped/untested section"
 

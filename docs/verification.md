@@ -52,6 +52,31 @@ evals ok
 All checks passed.
 ```
 
+## Live Smoke Tests
+
+The repeatable smoke test is:
+
+```bash
+./scripts/smoke-test-skill.sh
+```
+
+It runs two fresh `codex exec` tasks:
+
+- readiness check using safe metadata only
+- synthetic public-safe writing improvement
+
+Expected evidence:
+
+- at least one completed Spiral metadata/status tool in the readiness run
+- at least one completed Spiral writing tool in the synthetic writing run
+- final answers that do not expose OAuth tokens, callback URLs, private samples, private drafts, or IDs
+
+Latest successful smoke run on June 4, 2026:
+
+- readiness completed `spiral_voice_status`, `spiral_list_styles`, and `spiral_check_quota`
+- synthetic writing completed `spiral_voice_status` and `spiral_humanize_text`
+- synthetic output: `This test update confirms the writing workflow is working.`
+
 ## Spiral MCP Tool Tests
 
 Fresh-session discovery exposed 12 Spiral tools:

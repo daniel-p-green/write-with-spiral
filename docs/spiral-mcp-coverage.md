@@ -27,11 +27,11 @@ Fresh-session discovery exposed these Spiral MCP tools:
 
 | Tool | Result | Privacy-safe evidence |
 | --- | --- | --- |
-| `spiral_list_workspaces` | Succeeded | Returned 1 workspace. |
-| `spiral_list_styles` | Succeeded | Returned 1 writing style with 13 samples. |
-| `spiral_voice_status` | Succeeded | Voice is set up; reported 50 samples available. |
+| `spiral_list_workspaces` | Succeeded | Returned workspace metadata in fresh-session testing. |
+| `spiral_list_styles` | Succeeded | Returned available style metadata. Latest smoke run reported 2 styles. |
+| `spiral_voice_status` | Succeeded | Voice is set up and ready to write. |
 | `spiral_check_quota` | Succeeded | Plan/usage check returned unlimited usage. |
-| `spiral_list_sessions` | Succeeded | Returned 4 recent sessions. |
+| `spiral_list_sessions` | Succeeded | Returned recent-session metadata in fresh-session testing. |
 
 ## Synthetic Writing Tests
 
@@ -43,6 +43,20 @@ All writing tests used synthetic public-safe input only.
 | `spiral_generate_writing` | Succeeded | Returned a synthetic field-note draft and a session id for refinement. |
 | `spiral_personalize_text` | Succeeded | Rewrote synthetic text in a more natural style. |
 | `spiral_humanize_text` | Succeeded | Returned a humanized version of synthetic text. |
+
+## Latest Smoke-Test Evidence
+
+The repeatable smoke command is:
+
+```bash
+./scripts/smoke-test-skill.sh /tmp/write-with-spiral-smoke-current
+```
+
+Latest successful run on June 4, 2026:
+
+- readiness run completed `spiral_voice_status`, `spiral_list_styles`, and `spiral_check_quota`
+- synthetic writing run completed `spiral_voice_status` and `spiral_humanize_text`
+- final answers avoided OAuth tokens, callback URLs, private sample text, draft text, IDs, and private content
 
 ## Skipped On Purpose
 
@@ -64,4 +78,3 @@ The Spiral web app also exposes surfaces that were observed but not confirmed as
 - URL, paste text, upload, and read-only social reference ingestion controls
 
 Treat these as browser/app workflows unless future Spiral MCP tool discovery exposes matching tools.
-

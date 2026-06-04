@@ -12,6 +12,7 @@ This project is done when all targets below are satisfied.
 - The check script includes at least 5 deterministic checks.
 - The README includes install, quick example, troubleshooting, limitations, and verification sections.
 - Spiral MCP coverage docs list discovered tools, tested calls, and skipped safety-sensitive calls.
+- The repo includes a repeatable live smoke-test script for safe Spiral MCP readiness and synthetic writing checks.
 - The repo is public on GitHub and has a pushed commit.
 
 ## Verification Gates

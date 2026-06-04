@@ -116,6 +116,7 @@ See [`docs/verification.md`](./docs/verification.md) for the current verificatio
 ├── evals/evals.json
 ├── scripts/check.sh
 ├── scripts/install-skill.sh
+├── scripts/smoke-test-skill.sh
 ├── AGENTS.md
 ├── LICENSE
 └── README.md
@@ -221,11 +222,22 @@ Run deterministic checks:
 ./scripts/check.sh
 ```
 
+Run live Spiral MCP smoke tests:
+
+```bash
+./scripts/smoke-test-skill.sh
+```
+
+The smoke test uses `$write-with-spiral` in fresh `codex exec` sessions. It performs a safe readiness check and a synthetic public-safe writing task. It intentionally avoids private samples, private drafts, OAuth tokens, callback URLs, and mutating voice-sample calls.
+
+Note: this live smoke test needs normal Codex state/MCP access. In a restricted sandbox, run it outside the sandbox or from a normal terminal.
+
 The eval prompts in [`evals/evals.json`](./evals/evals.json) cover:
 
 - drafting with style context
 - creating a new style safely
 - debugging MCP visibility without leaking tokens
+- humanizing AI-sounding text without mutating voice samples
 
 ## License
 
