@@ -1,4 +1,4 @@
-# Spiral Codex MCP
+# Write with Spiral MCP
 
 Style-aware writing workflows for Codex and [Spiral](https://app.writewithspiral.com/).
 
@@ -26,20 +26,20 @@ The point is not more ceremony. The point is reusable writing leverage.
 After installing, ask Codex:
 
 ```text
-Use $spiral-codex to rewrite this launch note in my LinkedIn style.
+Use $write-with-spiral to rewrite this launch note in my LinkedIn style.
 Keep it concrete, public-safe, and tell me what Spiral context you used.
 ```
 
 For a setup check:
 
 ```text
-Use $spiral-codex to verify my Spiral MCP setup and tell me whether Codex can use it in this session.
+Use $write-with-spiral to verify my Spiral MCP setup and tell me whether Codex can use it in this session.
 ```
 
 For style creation:
 
 ```text
-Use $spiral-codex to help me create a Spiral style from essays, short posts, and emails. Start with privacy checks before I paste anything.
+Use $write-with-spiral to help me create a Spiral style from essays, short posts, and emails. Start with privacy checks before I paste anything.
 ```
 
 ## Install
@@ -68,7 +68,7 @@ Copy the skill into a Codex-scanned skill location:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R .agents/skills/spiral-codex ~/.codex/skills/
+cp -R .agents/skills/write-with-spiral ~/.codex/skills/
 ```
 
 Or use the helper:
@@ -81,7 +81,7 @@ Project-local install:
 
 ```bash
 mkdir -p .agents/skills
-cp -R /path/to/spiral-codex-mcp/.agents/skills/spiral-codex .agents/skills/
+cp -R /path/to/spiral-codex-mcp/.agents/skills/write-with-spiral .agents/skills/
 ```
 
 ## Verify
@@ -107,10 +107,11 @@ See [`docs/verification.md`](./docs/verification.md) for the current verificatio
 
 ```text
 .
-├── .agents/skills/spiral-codex/
+├── .agents/skills/write-with-spiral/
 │   ├── SKILL.md
 │   └── references/app-surface.md
 ├── docs/done-targets.md
+├── docs/spiral-mcp-coverage.md
 ├── docs/verification.md
 ├── evals/evals.json
 ├── scripts/check.sh
@@ -124,6 +125,9 @@ See [`docs/verification.md`](./docs/verification.md) for the current verificatio
 
 - Spiral MCP setup and OAuth verification
 - drafting with an existing Spiral style
+- generating new writing from a brief
+- personalizing existing text in the user's voice
+- humanizing AI-sounding text
 - creating or refreshing a style from references
 - comparing styles and channels
 - building reusable Spiral prompts
@@ -147,6 +151,24 @@ Observed surfaces included:
 - reference ingestion through URL, paste text, upload, and read-only connection
 
 No private writing samples are included in this repository.
+
+## Confirmed MCP Coverage
+
+Fresh-session testing confirmed these Spiral MCP tools:
+
+- `spiral_onboard`
+- `spiral_list_workspaces`
+- `spiral_list_styles`
+- `spiral_voice_status`
+- `spiral_check_quota`
+- `spiral_list_sessions`
+- `spiral_generate_writing`
+- `spiral_personalize_text`
+- `spiral_humanize_text`
+
+The tool surface also exposes `spiral_add_voice_samples`, `spiral_list_samples`, and `spiral_list_drafts`, but those were not called against private account data because they can mutate or reveal samples/drafts.
+
+See [`docs/spiral-mcp-coverage.md`](./docs/spiral-mcp-coverage.md) for the tested matrix.
 
 ## Troubleshooting
 
@@ -188,6 +210,8 @@ This is not an official Spiral SDK.
 It is a Codex skill and companion project for operating Spiral's MCP and app workflow more reliably. The exact MCP tool names may change, so the skill starts with verification and uses the live Spiral app as the source of truth when needed.
 
 The live app notes are a point-in-time inspection from June 4, 2026. Re-check the app before documenting new product behavior.
+
+Prompts, Knowledge, Agent/API Keys, style stats, and style guide update controls were observed in the web app. They are documented as app/browser workflows unless future MCP tool discovery exposes matching tool calls.
 
 ## Tests And Evals
 

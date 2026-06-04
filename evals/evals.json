@@ -1,5 +1,5 @@
 {
-  "skill_name": "spiral-codex",
+  "skill_name": "write-with-spiral",
   "evals": [
     {
       "id": 1,
@@ -9,8 +9,19 @@
       "assertions": [
         "Output includes a draft section.",
         "Output includes Spiral workspace, style, and channel context.",
-        "Output does not claim Spiral was used unless MCP or user-provided style evidence is available.",
+        "Output uses spiral_generate_writing or spiral_personalize_text when available, or states that Spiral tools are not visible in the current session.",
         "Output avoids private sample text."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Use Spiral to humanize this AI-sounding paragraph, but do not personalize it to my saved voice: \"This paragraph is designed to communicate that the writing workflow is functioning correctly.\"",
+      "expected_output": "A humanized rewrite that uses or requests spiral_humanize_text and clearly distinguishes humanizing from personalizing.",
+      "files": [],
+      "assertions": [
+        "Output distinguishes humanizing from personalizing.",
+        "Output uses spiral_humanize_text when available.",
+        "Output does not claim to update voice samples."
       ]
     },
     {
@@ -39,4 +50,3 @@
     }
   ]
 }
-

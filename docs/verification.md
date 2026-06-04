@@ -32,7 +32,7 @@ https://app.writewithspiral.com/writing-styles
 Evidence captured in:
 
 ```text
-.agents/skills/spiral-codex/references/app-surface.md
+.agents/skills/write-with-spiral/references/app-surface.md
 ```
 
 The notes intentionally avoid private writing samples and OAuth details.
@@ -52,9 +52,39 @@ evals ok
 All checks passed.
 ```
 
+## Spiral MCP Tool Tests
+
+Fresh-session discovery exposed 12 Spiral tools:
+
+```text
+spiral_onboard
+spiral_list_workspaces
+spiral_list_styles
+spiral_add_voice_samples
+spiral_personalize_text
+spiral_generate_writing
+spiral_list_sessions
+spiral_voice_status
+spiral_list_drafts
+spiral_check_quota
+spiral_humanize_text
+spiral_list_samples
+```
+
+Read-only calls succeeded for workspace discovery, style discovery, voice status, quota, and recent sessions.
+
+Synthetic public-safe writing calls succeeded for onboarding, generating writing, personalizing text, and humanizing text.
+
+Skipped on purpose:
+
+- `spiral_add_voice_samples`, because it mutates account voice data.
+- `spiral_list_samples`, because it can expose private writing samples.
+- `spiral_list_drafts` against private sessions, because it can expose private draft content.
+
+See [`spiral-mcp-coverage.md`](./spiral-mcp-coverage.md).
+
 ## Remaining Manual Checks
 
 - Open a fresh Codex session and confirm whether Spiral MCP tools are exposed directly.
 - If tool names differ from the skill's generic workflow language, add a tool reference document.
 - Re-run Comet exploration before documenting any new Spiral UI behavior.
-

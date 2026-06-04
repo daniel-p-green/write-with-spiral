@@ -11,6 +11,7 @@ This project is done when all targets below are satisfied.
 - The eval set includes at least 3 realistic prompts.
 - The check script includes at least 5 deterministic checks.
 - The README includes install, quick example, troubleshooting, limitations, and verification sections.
+- Spiral MCP coverage docs list discovered tools, tested calls, and skipped safety-sensitive calls.
 - The repo is public on GitHub and has a pushed commit.
 
 ## Verification Gates
@@ -28,4 +29,3 @@ codex mcp get spiral
 ```
 
 Do not mark the project complete if either the deterministic checks fail or the GitHub repo has not been pushed.
-
