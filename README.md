@@ -81,7 +81,7 @@ Project-local install:
 
 ```bash
 mkdir -p .agents/skills
-cp -R /path/to/spiral-codex-mcp/.agents/skills/write-with-spiral .agents/skills/
+cp -R /path/to/write-with-spiral/.agents/skills/write-with-spiral .agents/skills/
 ```
 
 ## Verify
