@@ -1,4 +1,4 @@
-# Write with Spiral MCP
+# Write with Spiral Skill
 
 Style-aware writing workflows for Codex and [Spiral](https://app.writewithspiral.com/).
 
