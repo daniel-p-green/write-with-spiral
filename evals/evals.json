@@ -1,0 +1,42 @@
+{
+  "skill_name": "spiral-codex",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use Spiral to rewrite this launch note in my LinkedIn style. Make it concise, concrete, and suitable for public posting. Also tell me what Spiral style and channel you used.",
+      "expected_output": "A public-safe LinkedIn draft plus a Spiral Context section naming workspace/style/channel/source assumptions and avoiding private sample excerpts.",
+      "files": [],
+      "assertions": [
+        "Output includes a draft section.",
+        "Output includes Spiral workspace, style, and channel context.",
+        "Output does not claim Spiral was used unless MCP or user-provided style evidence is available.",
+        "Output avoids private sample text."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me create a new Spiral style from a mix of newsletter essays, short posts, and a few emails. I want the workflow, the minimum sample set, and privacy checks before I paste anything.",
+      "expected_output": "A style creation workflow with sample-count guidance, source diversity, reference ingestion options, and explicit privacy/sanitization checks.",
+      "files": [],
+      "assertions": [
+        "Output recommends representative samples across multiple source types.",
+        "Output names Spiral reference paths such as URL, paste text, upload, or read-only connection.",
+        "Output includes privacy checks before ingestion.",
+        "Output distinguishes style references from Knowledge."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Spiral is logged in but Codex cannot see any Spiral tools. Debug this without exposing tokens.",
+      "expected_output": "A troubleshooting sequence using codex mcp get/list, OAuth relogin guidance, fresh-session caveat, and no token or callback URL exposure.",
+      "files": [],
+      "assertions": [
+        "Output starts with codex mcp get spiral or codex mcp list.",
+        "Output mentions OAuth relogin.",
+        "Output mentions a fresh Codex session if tools are not visible.",
+        "Output warns against exposing tokens or callback URLs."
+      ]
+    }
+  ]
+}
+
